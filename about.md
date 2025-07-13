@@ -12,11 +12,12 @@ Welcome to my development blog! I'm passionate about coding, technology, and sha
 
 I focus on various aspects of software development including:
 
-- Web Development
-- Mobile Development
-- DevOps and Infrastructure
 - Open Source Contributions
 - Technical Writing
+- Network Science
+- Sabermetrics
+- Code Review and Code Culture
+- Everything I've experienced while development
 
 ### About This Blog
 
@@ -32,7 +33,8 @@ This blog serves as a platform for me to:
 Feel free to reach out to me through:
 
 - [GitHub](https://github.com/codercollie)
-- [Twitter](https://twitter.com/codercollie) (if you have one)
+- [Twitter](https://twitter.com/coder_collie)
+- [Inflearn](https://www.inflearn.com/users/1585120/@codercollie)
 
 ### Technical Stack
 
@@ -45,4 +47,4 @@ This blog is built with:
 
 ---
 
-*Thanks for visiting!* 
+*Thanks for visiting!*
