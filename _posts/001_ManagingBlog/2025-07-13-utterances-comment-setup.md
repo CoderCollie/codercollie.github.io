@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Jekyll 블로그에 Utterances로 댓글 기능을 달았습니다.
-date: 2024-12-19 12:00:00 +0000
 categories: [jekyll, blog, comments]
 tags: [utterances, github, comments, jekyll, 블로그]
 author: CoderCollie
