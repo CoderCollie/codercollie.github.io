@@ -1,0 +1,50 @@
+---
+layout: default
+title: Home
+---
+
+<div class="home">
+    <div class="hero">
+        <h1>Welcome to {{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+    </div>
+
+    <section class="recent-posts">
+        <h2>Recent Posts</h2>
+        <div class="post-list">
+            {% for post in site.posts limit:5 %}
+            <article class="post-preview">
+                <header class="post-header">
+                    <h3 class="post-title">
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </h3>
+                    <div class="post-meta">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                            {{ post.date | date: "%B %d, %Y" }}
+                        </time>
+                        {% if post.categories %}
+                        <span class="post-categories">
+                            in {{ post.categories | join: ", " }}
+                        </span>
+                        {% endif %}
+                    </div>
+                </header>
+                <div class="post-excerpt">
+                    {% if post.excerpt %}
+                    {{ post.excerpt }}
+                    {% else %}
+                    {{ post.content | strip_html | truncatewords: 50 }}
+                    {% endif %}
+                </div>
+                <a href="{{ post.url | relative_url }}" class="read-more">Read more &rarr;</a>
+            </article>
+            {% endfor %}
+        </div>
+        
+        {% if site.posts.size > 5 %}
+        <div class="view-all">
+            <a href="{{ '/blog/' | relative_url }}" class="button">View all posts</a>
+        </div>
+        {% endif %}
+    </section>
+</div> 
