@@ -1,0 +1,46 @@
+# Site settings
+title: CoderCollie's Blog
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  A blog about development, coding, and technology.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://codercollie.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: codercollie
+github_username:  codercollie
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "CoderCollie"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/ 
