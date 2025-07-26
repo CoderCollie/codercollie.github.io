@@ -29,3 +29,8 @@ git config --global alias.ac '!git add . && git commit -m'
 !git add . && git commit -m
 ```
 
+- and then add one more shorcut, after doing this, I couldn't stand all git command, I'd like to set all long command as shortcut
+
+```git
+git config --global alias.st '!git status'
+```
