@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+@import url('syntax-highlighting.css');
 
 /* Reset and base styles */
 * {
@@ -135,21 +136,6 @@ body {
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-size: 0.9em;
-}
-
-.post-content pre, .page-content pre {
-    background: #2d3748;
-    color: #e2e8f0;
-    padding: 1rem;
-    border-radius: 5px;
-    overflow-x: auto;
-    margin: 1rem 0;
-}
-
-.post-content pre code, .page-content pre code {
-    background: none;
-    padding: 0;
-    color: inherit;
 }
 
 /* Post list */

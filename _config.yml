@@ -10,6 +10,9 @@ github_username:  codercollie
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
 permalink: /:year/:month/:day/:title/
 plugins:
   - jekyll-feed
