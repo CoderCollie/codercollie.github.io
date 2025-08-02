@@ -6,18 +6,18 @@ tags: [rouge, jekyll, syntax-highlighting, css, markdown]
 author: CoderCollie
 ---
 
-- Recently, I applied syntax highlighting to my Jekyll-based blog. When I looked at the CSS file required for syntax highlighting, I noticed it only contained unfamiliar classes like the ones below. I expected to see keywords like "ruby" or "python" or something similar—classes that would indicate which syntax to highlight and which keywords should be emphasized. Instead, there were only some classes I wasn't familiar with.
+Recently, I applied syntax highlighting to my Jekyll-based blog. When I looked at the CSS file required for syntax highlighting, I noticed it only contained unfamiliar classes like the ones below. I expected to see keywords like "ruby" or "python" or something similar—classes that would indicate which syntax to highlight and which keywords should be emphasized. Instead, there were only some classes I wasn't familiar with.
 
 ```css
 .highlight .k { color: #d73a49; }  /* Keywords */
 .highlight .kd { color: #d73a49; } /* Keywords */
 ```
 
-- This made me realize I needed to understand how syntax highlighting actually works in Jekyll.
+This made me realize I needed to understand how syntax highlighting actually works in Jekyll.
 
 ## The Complete Process
 
-- Syntax highlighting works in three main steps:
+Syntax highlighting works in three main steps:
 
 1. **Jekyll and Rouge convert markdown files to HTML**
 2. **Rouge determines which words should be highlighted and assigns appropriate CSS classes**
@@ -25,7 +25,7 @@ author: CoderCollie
 
 ## 1. Converting Markdown to HTML
 
-- Below is an example of how Jekyll and Rouge convert markdown code to HTML:
+Below is an example of how Jekyll and Rouge convert markdown code to HTML:
 
 `````````markdown
 ```lua
@@ -35,7 +35,7 @@ end
 ```
 `````````
 
-- Gets converted to:
+Gets converted to:
 
 ```html
 <div class="language-lua highlighter-rouge">
@@ -53,14 +53,15 @@ end
 
 ## 2. Rouge Understands Programming Languages
 
-- Rouge knows how to categorize keywords into different classes.
-- As you might know, some words can be keywords in programming language A but not in programming language B. Different programming languages have different syntax and keywords.
+Rouge knows how to categorize keywords into different classes.
+
+As you might know, some words can be keywords in programming language A but not in programming language B. Different programming languages have different syntax and keywords.
 
 - **Lua**: `function`, `return`, `end` → keywords
 - **Python**: `def`, `return`, `if` → keywords
 - **JavaScript**: `function`, `return`, `if` → keywords
 
-- The most important thing is that Rouge can distinguish which words are keywords depending on the programming language.
+The most important thing is that Rouge can distinguish which words are keywords depending on the programming language.
 
 ```html
 <!-- Lua code -->
@@ -86,7 +87,7 @@ end
 
 ## 3. CSS Doesn't Need to Know the Syntax
 
-- Since Rouge has already distinguished the type of each word and attached the appropriate class, CSS doesn't need to understand the syntax.
+Since Rouge has already distinguished the type of each word and attached the appropriate class, CSS doesn't need to understand the syntax.
 
 ```css
 /* Apply red color to all keywords */
@@ -99,7 +100,7 @@ end
 .highlight .c { color: #6a737d; }
 ```
 
-- By applying this CSS, we can see syntax-highlighted code in the web browser like this:
+By applying this CSS, we can see syntax-highlighted code in the web browser like this:
 
 ```html
 <!-- Lua, Python, JavaScript all use the same color scheme -->
