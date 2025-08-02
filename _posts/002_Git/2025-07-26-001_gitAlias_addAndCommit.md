@@ -4,11 +4,9 @@ category: git
 tags: [git, productivity, aliases, workflow]
 ---
 
-## The Problem: Repetitive Git Commands
+I often use git commits as save points during my development process, especially blogging process. Of course, I don't do this in company-related repositories because messy commit histories can cause problems. I typically maintain commits as small save points when working on personal projects like blogging or side projects. Even though I organize these commits this way, I sometimes need to clean them up by squashing when I have more time to refactor. But as you know, in real life, we don't have much time to do those things.
 
-- I often use git commits as save points during my development process, especially blogging process. Of course, I don't do this in company-related repositories because messy commit histories can cause problems. I typically maintain commits as small save points when working on personal projects like blogging or side projects. Even though I organize these commits this way, I sometimes need to clean them up by squashing when I have more time to refactor. But as you know, in real life, we don't have much time to do those things.
-
-- The main issue I face is the repetitive nature of the add and commit workflow. Every time I want to save my changes, I have to type these two sequential commands:
+The main issue I face is the repetitive nature of the add and commit workflow. Every time I want to save my changes, I have to type these two sequential commands:
 
 ```shell
 git add .

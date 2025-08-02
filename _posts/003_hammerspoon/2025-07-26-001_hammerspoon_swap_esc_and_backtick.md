@@ -4,8 +4,6 @@ category: hammerspoon
 tags: [hammerspoon, lua, HHKB, keyboard, productivity]
 ---
 
-## Introduction
-
 As a long-time Vim user and fan of the Happy Hacking Keyboard (HHKB), I've grown accustomed to the unique key layout of the HHKB. On this keyboard, the **Esc** key is conveniently placed just to the left of the number 1 key, which is different from most standard keyboards where the **Esc** key is in the upper-left corner and the backtick (\`) key is to the left of the number 1.
 
 This layout is incredibly useful for Vim enthusiasts, as it makes reaching the **Esc** key much easier. However, when I use a regular MacBook keyboard (without my HHKB), I often find myself accidentally pressing the backtick key when I intend to hit **Esc**—a result of muscle memory from using the HHKB layout.
@@ -34,7 +32,7 @@ function swapEscAndBacktick()
     {
       hs.eventtap.event.types.keyDown,  -- Detect key presses
       hs.eventtap.event.types.keyUp     -- Detect key releases
-    }, 
+    },
 
     -- This is the function that runs every time a key event happens.
     function(event)
