@@ -9,6 +9,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
+    <!-- Initialize Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
@@ -51,5 +54,12 @@
             {% endif %}
         </div>
     </footer>
+
+    <!-- Initialize Mermaid -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        mermaid.initialize({ startOnLoad: true });
+      });
+    </script>
 </body>
 </html>
