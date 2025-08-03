@@ -21,7 +21,7 @@ This is known as a **divergent branch** situation. It means that the latest comm
 4. Developer B commits `featureB` locally but hasn’t pushed it yet.
 5. At this point, when Developer B tries to `git pull`, Git shows the "divergent branches" warning.
 
-```mermaid
+<div class="mermaid">
 gitGraph
     commit id: "Commit 1"
     commit id: "Commit 2"
@@ -29,7 +29,7 @@ gitGraph
     commit id: "Feature B (Local)"
     checkout main
     commit id: "Feature A (Remote)"
-```
+</div>
 
 A **fast-forward** pull is only possible when your local branch has no unique commits that are not in the remote branch. However, in this situation, your local branch already has new commits. Git needs you to specify how you want to reconcile these changes.
 
