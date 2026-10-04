@@ -73,11 +73,6 @@ title: Home
                 <!-- Live App Card (Large Hero Card) -->
                 <article class="bento-card app-card app-card-featured">
                     <div class="card-glow"></div>
-                    {% if app.banner %}
-                    <div class="app-card-banner">
-                        <img src="{{ app.banner | relative_url }}" alt="{{ app.name }} banner" class="app-banner-img" loading="lazy">
-                    </div>
-                    {% endif %}
                     <div class="app-card-header">
                         <div class="app-identity">
                             <div class="app-icon-box">
