@@ -1,28 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en" }}">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{% if page.title and page.title != "Home" %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+    <!-- Fonts: Pretendard & JetBrains Mono -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-    <!-- Initialize Mermaid -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-
     <!-- RSS Feed -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
-    <!-- Start for Math Jax-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <!-- End for Math Jax-->
-
     {% seo %}
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MDT079ZBF"></script>
     <script>
@@ -33,40 +30,72 @@
       gtag('config', 'G-8MDT079ZBF');
     </script>
 </head>
-<body>
+<body class="theme-dark">
+    <!-- Header -->
     <header class="site-header">
-        <div class="container">
-            <h1 class="site-title">
-                <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-            </h1>
+        <div class="container header-container">
+            <a href="{{ '/' | relative_url }}" class="brand-logo">
+                <span class="status-indicator">
+                    <span class="pulse-ring"></span>
+                    <span class="pulse-dot"></span>
+                </span>
+                <div class="brand-text">
+                    <span class="brand-name">CoderCollie</span>
+                    <span class="brand-badge">INDIE LAB</span>
+                </div>
+            </a>
             <nav class="site-nav">
-                <a href="{{ '/' | relative_url }}">Home</a>
-                <a href="{{ '/about/' | relative_url }}">About</a>
-                <a href="{{ '/blog/' | relative_url }}">Blog</a>
+                <a href="#apps" class="nav-link">Apps</a>
+                <a href="#content" class="nav-link">Content</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="https://github.com/codercollie" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-external">
+                    GitHub
+                    <svg class="external-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.5 1.5H10.5V8.5M10.5 1.5L1.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </nav>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="site-main">
-        <div class="container">
-            {{ content }}
-        </div>
+        {{ content }}
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
-        <div class="container">
-            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
-            {% if site.github_username %}
-            <p><a href="https://github.com/{{ site.github_username }}">GitHub</a></p>
-            {% endif %}
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">CoderCollie</span>
+                    <p class="footer-tagline">Building sharp, focused software to cut through everyday friction.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <a href="#apps">Apps</a>
+                        <a href="#content">Courses & Media</a>
+                        <a href="#about">About</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="https://github.com/codercollie" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://twitter.com/coder_collie" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+                        <a href="https://www.inflearn.com/users/1585120/@codercollie" target="_blank" rel="noopener noreferrer">Inflearn</a>
+                        <a href="mailto:coder.collie.dev@gmail.com">Email</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Standards</h4>
+                        <a href="{{ '/app-ads.txt' | relative_url }}" target="_blank">app-ads.txt</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{ site.time | date: '%Y' }} CoderCollie. All rights reserved.</p>
+                <p class="built-with">Crafted with precision & Jekyll</p>
+            </div>
         </div>
     </footer>
-
-    <!-- Initialize Mermaid -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        mermaid.initialize({ startOnLoad: true });
-      });
-    </script>
 </body>
 </html>

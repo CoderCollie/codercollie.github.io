@@ -1,11 +1,11 @@
 # Site settings
-title: CoderCollie's Blog
+title: CoderCollie | Indie Maker & Software Engineer
 email: coder.collie.dev@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A blog about development, coding, and technology.
+  불편한 일상을 집요하게 파고들어, 날카로운 소프트웨어로 해결합니다. 인디 메이커 CoderCollie의 프로덕트 & 프로젝트 쇼케이스.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://codercollie.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: codercollie
+twitter_username: coder_collie
 github_username:  codercollie
 
 # Build settings

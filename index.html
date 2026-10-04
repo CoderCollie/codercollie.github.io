@@ -3,48 +3,315 @@ layout: default
 title: Home
 ---
 
-<div class="home">
-    <div class="hero">
-        <h1>Welcome to {{ site.title }}</h1>
-        <p>{{ site.description }}</p>
-    </div>
+<div class="indie-hub">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-ambient hero-ambient-green"></div>
+        <div class="hero-ambient hero-ambient-purple"></div>
 
-    <section class="recent-posts">
-        <h2>Recent Posts</h2>
-        <div class="post-list">
-            {% for post in site.posts limit:5 %}
-            <article class="post-preview">
-                <header class="post-header">
-                    <h3 class="post-title">
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                    </h3>
-                    <div class="post-meta">
-                        <time datetime="{{ post.date | date_to_xmlschema }}">
-                            {{ post.date | date: "%B %d, %Y" }}
-                        </time>
-                        {% if post.categories %}
-                        <span class="post-categories">
-                            in {{ post.categories | join: ", " }}
-                        </span>
+        <div class="container hero-container">
+            <div class="hero-pill">
+                <span class="pill-dot"></span>
+                <span class="pill-text">Indie Maker's Lab & Product Hub</span>
+            </div>
+
+            <h1 class="hero-title">
+                불편한 일상을 집요하게 파고들어,<br>
+                <span class="gradient-text">날카로운 소프트웨어</span>로 해결합니다.
+            </h1>
+
+            <p class="hero-description">
+                소프트웨어 엔지니어이자 인디 메이커 <strong>CoderCollie</strong>입니다.<br class="hidden-mobile">
+                타협 없는 장인정신으로 쓸모 있는 모바일 앱과 건강한 개발 문화를 만듭니다.
+            </p>
+
+            <!-- Metrics / Pipeline Status -->
+            <div class="hero-metrics">
+                <div class="metric-item">
+                    <span class="metric-dot dot-green"></span>
+                    <span class="metric-label">Live App:</span>
+                    <strong class="metric-value">독!한자 (Google Play)</strong>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-dot dot-yellow"></span>
+                    <span class="metric-label">Course:</span>
+                    <strong class="metric-value">인프런 평점 5.0 ★</strong>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-dot dot-purple"></span>
+                    <span class="metric-label">Pipeline:</span>
+                    <strong class="metric-value">Project #02 준비 중</strong>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#apps" class="btn btn-primary">
+                    <span>출시된 앱 살펴보기</span>
+                    <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 3V13M8 13L13 8M8 13L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#content" class="btn btn-ghost">
+                    <span>강의 & 미디어 보기</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section id="apps" class="section apps-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">FEATURED APPS</span>
+                <h2 class="section-title">직접 만들어 배포한 프로덕트</h2>
+                <p class="section-subtitle">기획부터 개발, 디자인, 스토어 출시까지 직접 완성한 프로덕트 라인업입니다.</p>
+            </div>
+
+            <div class="apps-grid">
+                {% for app in site.data.apps %}
+                {% if app.status == "live" %}
+                <!-- Live App Card (Large Hero Card) -->
+                <article class="bento-card app-card app-card-featured">
+                    <div class="card-glow"></div>
+                    <div class="app-card-header">
+                        <div class="app-identity">
+                            <div class="app-icon-box">
+                                <span class="app-icon-char">{{ app.icon_char }}</span>
+                            </div>
+                            <div class="app-meta">
+                                <div class="app-badge-row">
+                                    <span class="tag-platform">{{ app.platform }}</span>
+                                    <span class="status-badge status-badge-live">
+                                        <span class="badge-dot"></span>
+                                        {{ app.status_label }}
+                                    </span>
+                                </div>
+                                <h3 class="app-title">{{ app.name }}</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="app-card-body">
+                        <p class="app-tagline">“{{ app.tagline }}”</p>
+                        <p class="app-desc">{{ app.description }}</p>
+
+                        <!-- Key Metrics Row -->
+                        {% if app.metrics %}
+                        <div class="app-stats-row">
+                            {% for m in app.metrics %}
+                            <div class="stat-box">
+                                <span class="stat-value">{{ m.value }}</span>
+                                <span class="stat-label">{{ m.label }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <!-- Key Features Checklist -->
+                        {% if app.features %}
+                        <ul class="feature-checklist">
+                            {% for feat in app.features %}
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.5 4.5L6.5 11.5L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>{{ feat }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                        <!-- Badges Tag Cloud -->
+                        {% if app.badges %}
+                        <div class="app-tags-cloud">
+                            {% for badge in app.badges %}
+                            <span class="app-tag">{{ badge }}</span>
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
-                </header>
-                <div class="post-excerpt">
-                    {% if post.excerpt %}
-                    {{ post.excerpt }}
-                    {% else %}
-                    {{ post.content | strip_html | truncatewords: 50 }}
-                    {% endif %}
-                </div>
-                <a href="{{ post.url | relative_url }}" class="read-more">Read more &rarr;</a>
-            </article>
-            {% endfor %}
+
+                    <div class="app-card-footer">
+                        {% for link in app.links %}
+                        {% if link.primary %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-app">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3.609 1.814L13.792 12 3.61 22.186a2.008 2.008 0 0 1-.61-.951V2.765c.08-.363.29-.68.609-.951zm11.597 11.599l2.42 2.42-12.87 7.424 10.45-9.844zm0-2.826L4.756.743l12.87 7.424-2.42 2.42zM16.62 12l3.43 1.98a1.5 1.5 0 0 0 0-2.58L16.62 12z"/>
+                            </svg>
+                            <span>{{ link.label }}</span>
+                        </a>
+                        {% else %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-app">
+                            <span>{{ link.label }}</span>
+                            <svg class="external-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 1.5H10.5V8.5M10.5 1.5L1.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </article>
+                {% else %}
+                <!-- In-Progress Teaser Card -->
+                <article class="bento-card app-card app-card-pipeline">
+                    <div class="app-card-header">
+                        <div class="app-identity">
+                            <div class="app-icon-box app-icon-pipeline">
+                                <span class="app-icon-char">{{ app.icon_char }}</span>
+                            </div>
+                            <div class="app-meta">
+                                <div class="app-badge-row">
+                                    <span class="tag-platform">{{ app.platform }}</span>
+                                    <span class="status-badge status-badge-pipeline">
+                                        <span class="badge-dot dot-pulse"></span>
+                                        {{ app.status_label }}
+                                    </span>
+                                </div>
+                                <h3 class="app-title">{{ app.name }}</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="app-card-body">
+                        <p class="app-tagline">“{{ app.tagline }}”</p>
+                        <p class="app-desc">{{ app.description }}</p>
+
+                        {% if app.features %}
+                        <ul class="feature-checklist checklist-muted">
+                            {% for feat in app.features %}
+                            <li>
+                                <span class="dash-bullet">—</span>
+                                <span>{{ feat }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                        {% if app.badges %}
+                        <div class="app-tags-cloud">
+                            {% for badge in app.badges %}
+                            <span class="app-tag tag-muted">{{ badge }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="app-card-footer">
+                        <div class="pipeline-status-box">
+                            <span class="pipeline-notice">🛠️ 차기 프로젝트 기획 및 개발이 진행 중입니다.</span>
+                        </div>
+                    </div>
+                </article>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
-        
-        {% if site.posts.size > 5 %}
-        <div class="view-all">
-            <a href="{{ '/blog/' | relative_url }}" class="button">View all posts</a>
-        </div>
-        {% endif %}
     </section>
-</div> 
+
+    <!-- Content & Media Section -->
+    <section id="content" class="section content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">COURSES & MEDIA</span>
+                <h2 class="section-title">지식 공유 & 개발 문화</h2>
+                <p class="section-subtitle">동료 개발자들과 함께 상처 없이 건강하게 협업하고 성장하는 경험을 전합니다.</p>
+            </div>
+
+            <div class="content-grid">
+                {% for item in site.data.content %}
+                <article class="bento-card content-card {% if item.status == 'coming_soon' %}content-card-soon{% endif %}">
+                    <div class="content-card-top">
+                        <div class="content-header-row">
+                            <span class="content-icon">{{ item.icon_char }}</span>
+                            <span class="status-badge {% if item.status == 'live' %}status-badge-course{% else %}status-badge-soon{% endif %}">
+                                {{ item.status_label }}
+                            </span>
+                        </div>
+                        <span class="content-platform">{{ item.platform }}</span>
+                        <h3 class="content-title">{{ item.title }}</h3>
+                        <p class="content-tagline">“{{ item.tagline }}”</p>
+                        <p class="content-desc">{{ item.description }}</p>
+                    </div>
+
+                    <div class="content-card-bottom">
+                        <div class="content-tags">
+                            {% for t in item.tags %}
+                            <span class="content-tag">{{ t }}</span>
+                            {% endfor %}
+                        </div>
+
+                        {% if item.status == 'live' %}
+                        <a href="{{ item.link.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+                            <span>{{ item.link.label }}</span>
+                            <svg class="external-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 1.5H10.5V8.5M10.5 1.5L1.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        {% else %}
+                        <div class="btn btn-disabled btn-block">
+                            <span>{{ item.link.label }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">ABOUT MAKER</span>
+                <h2 class="section-title">집요함과 실용성, 그리고 문화</h2>
+                <p class="section-subtitle">CoderCollie가 프로덕트를 빌딩하고 코드를 작성할 때 지키는 세 가지 원칙입니다.</p>
+            </div>
+
+            <div class="about-bento-grid">
+                <div class="bento-card about-card">
+                    <div class="about-card-icon">⚡</div>
+                    <h3 class="about-card-title">Craftsmanship</h3>
+                    <p class="about-card-desc">
+                        불필요한 클릭 한 번, 사소한 딜레이 하나도 용납하지 않는 키보드 중심의 극단적 생산성 튜닝과 집요한 디테일을 프로덕트에 녹여냅니다.
+                    </p>
+                </div>
+
+                <div class="bento-card about-card">
+                    <div class="about-card-icon">🎯</div>
+                    <h3 class="about-card-title">Problem Solving</h3>
+                    <p class="about-card-desc">
+                        기술을 위한 기술이 아닌, 일상에서 사람들이 실제로 겪는 모호함과 비효율을 명쾌하고 직관적인 소프트웨어로 풀어냅니다.
+                    </p>
+                </div>
+
+                <div class="bento-card about-card">
+                    <div class="about-card-icon">🌱</div>
+                    <h3 class="about-card-title">Healthy Culture</h3>
+                    <p class="about-card-desc">
+                        혼자만의 독주가 아닌, 팀원에게 상처 주지 않고 함께 멀리 갈 수 있는 배려 있는 코드 리뷰와 건강한 엔지니어링 문화를 신념으로 삼습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Social Connect Strip -->
+            <div class="social-connect-box">
+                <span class="connect-label">Connect with CoderCollie:</span>
+                <div class="connect-links">
+                    <a href="https://github.com/codercollie" target="_blank" rel="noopener noreferrer" class="connect-chip">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://twitter.com/coder_collie" target="_blank" rel="noopener noreferrer" class="connect-chip">
+                        <span>Twitter / X</span>
+                    </a>
+                    <a href="https://www.inflearn.com/users/1585120/@codercollie" target="_blank" rel="noopener noreferrer" class="connect-chip">
+                        <span>Inflearn</span>
+                    </a>
+                    <a href="mailto:coder.collie.dev@gmail.com" class="connect-chip">
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

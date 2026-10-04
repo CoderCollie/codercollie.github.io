@@ -1,0 +1,53 @@
+- id: dokhanja
+  name: "독!한자 (Dok! Hanja)"
+  status: "live"
+  status_label: "Live on Google Play"
+  category: "Mobile App"
+  platform: "Android"
+  icon: "assets/images/dokhanja-icon.png"
+  icon_char: "毒"
+  tagline: "뇌가 초록색으로 절여지는 한자 복습 지옥"
+  description: "도대체, 어차피, 심지어, 점심… 매일 쓰는 일상 어휘의 진짜 한자 속뜻! 에빙하우스 SM-2 망각곡선과 닮은꼴 한자 저격으로 정복하는 실전 복습 앱."
+  badges:
+    - "Google Play"
+    - "SM-2 알고리즘"
+    - "닮은꼴 한자 저격"
+    - "JLPT 신자체 확장"
+    - "100% 오프라인 & 무가입"
+  features:
+    - "뇌를 해킹하는 SM-2 에포크 망각곡선 자동 소환"
+    - "己·已·巳, 戊·戌·戍·戎 미세 자형 차이 집중 저격"
+    - "한국 정자 ➔ 일본 JLPT 신자체 6,539단어 1:1 매핑"
+    - "데이터 0MB, 로그인 없이 즉시 실행되는 쾌속 학습"
+  metrics:
+    - label: "기억 보존율"
+      value: "99.4%"
+    - label: "어휘 아카이브"
+      value: "159개"
+    - label: "오프라인 작동"
+      value: "100%"
+  links:
+    - label: "Google Play 다운로드"
+      url: "https://play.google.com/store/apps/details?id=com.codercollie.hanja"
+      primary: true
+      icon: "play"
+    - label: "웹 아카이브 & 랜딩"
+      url: "https://dokhanja.vercel.app/"
+      primary: false
+      icon: "external"
+
+- id: project_02
+  name: "Project #02"
+  status: "in_progress"
+  status_label: "In the Pipeline"
+  category: "New Product"
+  platform: "Mobile / Web"
+  icon_char: "🚀"
+  tagline: "일상의 또 다른 비효율을 해결할 새로운 도구"
+  description: "집요한 문제의식과 실용성을 담아 개발 중인 CoderCollie의 차기 프로젝트입니다. 곧 선보일 예정입니다."
+  badges:
+    - "기획 & 개발 진행 중"
+    - "Coming Soon"
+  features:
+    - "불편함을 직접 겪고 설계하는 실전형 문제 해결"
+    - "심플하고 직관적인 UX 중심 설계"
