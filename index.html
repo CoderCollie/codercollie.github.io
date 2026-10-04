@@ -73,10 +73,19 @@ title: Home
                 <!-- Live App Card (Large Hero Card) -->
                 <article class="bento-card app-card app-card-featured">
                     <div class="card-glow"></div>
+                    {% if app.banner %}
+                    <div class="app-card-banner">
+                        <img src="{{ app.banner | relative_url }}" alt="{{ app.name }} banner" class="app-banner-img" loading="lazy">
+                    </div>
+                    {% endif %}
                     <div class="app-card-header">
                         <div class="app-identity">
                             <div class="app-icon-box">
+                                {% if app.icon %}
+                                <img src="{{ app.icon | relative_url }}" alt="{{ app.name }} icon" class="app-icon-img" width="64" height="64" loading="lazy">
+                                {% else %}
                                 <span class="app-icon-char">{{ app.icon_char }}</span>
+                                {% endif %}
                             </div>
                             <div class="app-meta">
                                 <div class="app-badge-row">
@@ -157,7 +166,11 @@ title: Home
                     <div class="app-card-header">
                         <div class="app-identity">
                             <div class="app-icon-box app-icon-pipeline">
+                                {% if app.icon %}
+                                <img src="{{ app.icon | relative_url }}" alt="{{ app.name }} icon" class="app-icon-img" width="64" height="64" loading="lazy">
+                                {% else %}
                                 <span class="app-icon-char">{{ app.icon_char }}</span>
+                                {% endif %}
                             </div>
                             <div class="app-meta">
                                 <div class="app-badge-row">
