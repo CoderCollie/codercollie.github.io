@@ -49,6 +49,9 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 body.theme-dark {
@@ -59,12 +62,20 @@ body.theme-dark {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+img, svg, video, canvas {
+    max-width: 100%;
 }
 
 .container {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 24px;
+    width: 100%;
 }
 
 /* ==========================================================================
@@ -1342,43 +1353,384 @@ body.theme-dark {
 }
 
 @media (max-width: 640px) {
+    /* Base Container & Section */
+    .container {
+        padding: 0 16px;
+    }
+    
+    .section {
+        padding: 55px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 28px;
+    }
+    
+    .section-kicker {
+        font-size: 0.72rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    .section-subtitle {
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    /* Header & Navigation Fix */
+    .site-header {
+        padding: 10px 0;
+    }
+
+    .header-container {
+        gap: 10px;
+    }
+
+    .brand-name {
+        font-size: 1.02rem;
+    }
+
+    .brand-badge {
+        display: none; /* Hide to prevent pushing nav out */
+    }
+
+    .site-nav {
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: calc(100vw - 160px);
+    }
+
+    .site-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+        flex-shrink: 0;
+    }
+
+    .nav-link-external {
+        padding: 4px 8px;
+        font-size: 0.78rem;
+    }
+
+    .nav-link-external svg {
+        display: none;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        padding: 60px 0 45px;
+    }
+
+    .hero-ambient-green {
+        width: 300px;
+        height: 240px;
+        filter: blur(80px);
+    }
+
+    .hero-ambient-purple {
+        width: 240px;
+        height: 180px;
+        filter: blur(70px);
+        right: 0;
+    }
+
+    .hero-pill {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        max-width: 100%;
+    }
+
     .hero-title {
-        font-size: 1.85rem;
+        font-size: 1.6rem;
+        line-height: 1.3;
     }
     
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.65;
+        margin-bottom: 24px;
     }
     
     .hidden-mobile {
         display: none;
     }
+
+    .hero-metrics {
+        gap: 6px;
+        margin-bottom: 28px;
+    }
+
+    .metric-item {
+        font-size: 0.76rem;
+        padding: 5px 10px;
+    }
     
     .hero-actions {
         flex-direction: column;
         width: 100%;
+        gap: 12px;
     }
     
     .hero-actions .btn {
         width: 100%;
+        justify-content: center;
+    }
+
+    /* Bento Cards General Padding */
+    .bento-card {
+        padding: 22px 18px;
+        border-radius: var(--radius-lg);
+    }
+
+    /* Apps Section */
+    .app-card-header {
+        margin-bottom: 18px;
+    }
+
+    .app-identity {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .app-badge-row {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .app-title {
+        font-size: 1.35rem;
+    }
+
+    .app-tagline {
+        font-size: 0.98rem;
+    }
+
+    .app-desc {
+        font-size: 0.88rem;
+        line-height: 1.62;
+        margin-bottom: 20px;
+    }
+
+    .app-stats-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .stat-box {
+        padding: 10px 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .stat-value {
+        font-size: 1.15rem;
+        margin-bottom: 0;
+    }
+
+    .stat-label {
+        font-size: 0.78rem;
+    }
+
+    .feature-checklist {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .feature-checklist li {
+        font-size: 0.84rem;
+        gap: 10px;
+    }
+
+    .app-tags-cloud {
+        gap: 6px;
+        margin-bottom: 22px;
+    }
+
+    .app-tag {
+        font-size: 0.72rem;
+        padding: 3px 8px;
     }
     
     .app-card-footer {
         flex-direction: column;
+        gap: 10px;
     }
     
     .app-card-footer .btn {
         width: 100%;
+        justify-content: center;
     }
-    
-    .app-stats-row {
-        grid-template-columns: 1fr;
+
+    /* About Unified Bento */
+    .about-story-card {
+        padding: 22px 18px;
     }
-    
-    .app-identity {
-        flex-direction: column;
-        align-items: flex-start;
+
+    .story-headline {
+        font-size: 1.25rem;
+        line-height: 1.35;
+    }
+
+    .story-lead {
+        font-size: 0.92rem;
+    }
+
+    .story-detail {
+        font-size: 0.86rem;
+        line-height: 1.62;
+        margin-bottom: 18px;
+    }
+
+    .mini-journey-strip {
+        padding: 12px 14px;
+        margin-bottom: 16px;
+    }
+
+    .journey-chips {
+        gap: 5px;
+    }
+
+    .journey-chip {
+        font-size: 0.75rem;
+        gap: 5px;
+    }
+
+    .chip-step {
+        width: 16px;
+        height: 16px;
+        font-size: 0.65rem;
+    }
+
+    .quick-facts-row {
+        gap: 6px;
+        margin-bottom: 22px;
+    }
+
+    .fact-pill {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    .about-principles-stack {
         gap: 12px;
+    }
+
+    .principle-card {
+        padding: 16px 14px;
+        gap: 12px;
+    }
+
+    .principle-icon {
+        font-size: 1.4rem;
+    }
+
+    .principle-title {
+        font-size: 0.98rem;
+    }
+
+    .principle-desc {
+        font-size: 0.82rem;
+        line-height: 1.55;
+    }
+
+    .social-connect-box {
+        padding: 18px 16px;
+    }
+
+    .connect-label {
+        font-size: 0.88rem;
+    }
+
+    .connect-links {
+        gap: 8px;
+    }
+
+    .connect-chip {
+        padding: 6px 12px;
+        font-size: 0.78rem;
+    }
+
+    /* Page / About Article Layout */
+    .page-wrapper {
+        padding: 45px 0 65px;
+    }
+
+    .page-title {
+        font-size: 1.7rem;
+    }
+
+    .page-subtitle {
+        font-size: 0.92rem;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+    }
+
+    .story-intro-card {
+        padding: 18px 16px;
+        margin-bottom: 28px;
+    }
+
+    .story-quote {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        padding-left: 12px;
+    }
+
+    .page-content h2 {
+        font-size: 1.35rem;
+        margin: 36px 0 16px;
+    }
+
+    .timeline-story-block {
+        gap: 20px;
+        margin: 20px 0 32px;
+    }
+
+    .timeline-story-item {
+        padding: 20px 16px;
+    }
+
+    .timeline-item-title {
+        font-size: 1.12rem;
+    }
+
+    .timeline-item-desc {
+        font-size: 0.88rem;
+        line-height: 1.65;
+    }
+
+    .inner-dilemma-box {
+        padding: 14px 16px;
+        font-size: 0.86rem;
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 40px 0 25px;
+        margin-top: 40px;
+    }
+
+    .footer-top {
+        gap: 28px;
+        margin-bottom: 28px;
+    }
+
+    .footer-links {
+        gap: 24px;
     }
     
     .footer-bottom {
