@@ -38,8 +38,48 @@
       primary: false
       icon: "external"
 
-- id: project_02
-  name: "Project #02"
+- id: hiphopquant
+  name: "힙합퀀트 (HIPHOPQUANT)"
+  status: "live"
+  status_label: "Live on Web"
+  category: "Data Platform"
+  platform: "Web Application"
+  icon: "assets/images/apps/hiphopquant/icon.svg"
+  icon_char: "HQ"
+  tagline: "HQ가 이야기를 기록하는 건, 한국 힙합 역사를 운반하는 것"
+  description: "한국음악저작권협회(KOMCA) 공표 데이터와 커뮤니티 빅데이터를 기반으로 국힙 피처링 네트워크(6단계 연결고리), 래퍼 민심 트래커, 연대기, 신곡 릴리즈를 정량적으로 분석하는 힙합 퀀트 플랫폼."
+  badges:
+    - "Astro v7"
+    - "Network Science"
+    - "KOMCA 저작권 데이터"
+    - "Cloudflare Edge"
+    - "React Islands"
+    - "케빈 베이컨 6단계"
+  features:
+    - "케빈 베이컨 법칙 기반 국힙 피처링 최단 경로 네트워크 그래프 (/network)"
+    - "피처링 퀴즈, 단짝 콤비 및 국힙 마당발 래퍼 랭킹 분석"
+    - "커뮤니티 빅데이터 기반 실시간 래퍼 민심 트래커 (/sentiment)"
+    - "연도별 한국 힙합 역사 아카이빙 연대기 (/chronicle) 및 신곡 피드"
+    - "Astro 섬(Islands) 아키텍처 기반의 초경량·초고속 정적 웹 서빙"
+  metrics:
+    - label: "데이터 소스"
+      value: "KOMCA 전수"
+    - label: "네트워크 분석"
+      value: "최단 6단계"
+    - label: "아키텍처"
+      value: "Astro v7"
+  links:
+    - label: "힙합퀀트 바로가기"
+      url: "https://hiphopquant.com"
+      primary: true
+      icon: "external"
+    - label: "국힙 연결고리 네트워크 탐색"
+      url: "https://hiphopquant.com/network"
+      primary: false
+      icon: "external"
+
+- id: project_03
+  name: "Project #03"
   status: "in_progress"
   status_label: "In the Pipeline"
   category: "New Product"

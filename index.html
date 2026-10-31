@@ -22,15 +22,15 @@ title: Home
 
             <p class="hero-description">
                 소프트웨어 엔지니어이자 인디 메이커 <strong>CoderCollie</strong>입니다.<br class="hidden-mobile">
-                타협 없는 장인정신으로 쓸모 있는 모바일 앱과 건강한 개발 문화를 만듭니다.
+                타협 없는 장인정신으로 쓸모 있는 프로덕트와 건강한 개발 문화를 만듭니다.
             </p>
 
             <!-- Metrics / Pipeline Status -->
             <div class="hero-metrics">
                 <div class="metric-item">
                     <span class="metric-dot dot-green"></span>
-                    <span class="metric-label">Live App:</span>
-                    <strong class="metric-value">독!한자 (Google Play)</strong>
+                    <span class="metric-label">Live:</span>
+                    <strong class="metric-value">독!한자 · 힙합퀀트</strong>
                 </div>
                 <div class="metric-item">
                     <span class="metric-dot dot-yellow"></span>
@@ -40,13 +40,13 @@ title: Home
                 <div class="metric-item">
                     <span class="metric-dot dot-purple"></span>
                     <span class="metric-label">Pipeline:</span>
-                    <strong class="metric-value">Project #02 준비 중</strong>
+                    <strong class="metric-value">Project #03 준비 중</strong>
                 </div>
             </div>
 
             <div class="hero-actions">
                 <a href="#apps" class="btn btn-primary">
-                    <span>출시된 앱 살펴보기</span>
+                    <span>프로덕트 살펴보기</span>
                     <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 3V13M8 13L13 8M8 13L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -64,7 +64,7 @@ title: Home
             <div class="section-header">
                 <span class="section-kicker">FEATURED APPS</span>
                 <h2 class="section-title">직접 만들어 배포한 프로덕트</h2>
-                <p class="section-subtitle">기획부터 개발, 디자인, 스토어 출시까지 직접 완성한 프로덕트 라인업입니다.</p>
+                <p class="section-subtitle">기획부터 개발, 디자인, 배포까지 직접 완성한 프로덕트 라인업입니다.</p>
             </div>
 
             <div class="apps-grid">
@@ -137,12 +137,19 @@ title: Home
 
                     <div class="app-card-footer">
                         {% for link in app.links %}
-                        {% if link.primary %}
+                        {% if link.icon == "play" %}
                         <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-app">
                             <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M3.609 1.814L13.792 12 3.61 22.186a2.008 2.008 0 0 1-.61-.951V2.765c.08-.363.29-.68.609-.951zm11.597 11.599l2.42 2.42-12.87 7.424 10.45-9.844zm0-2.826L4.756.743l12.87 7.424-2.42 2.42zM16.62 12l3.43 1.98a1.5 1.5 0 0 0 0-2.58L16.62 12z"/>
                             </svg>
                             <span>{{ link.label }}</span>
+                        </a>
+                        {% elsif link.primary %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-app">
+                            <span>{{ link.label }}</span>
+                            <svg class="external-icon" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 1.5H10.5V8.5M10.5 1.5L1.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </a>
                         {% else %}
                         <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-app">
