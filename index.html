@@ -71,7 +71,7 @@ title: Home
                 {% for app in site.data.apps %}
                 {% if app.status == "live" %}
                 <!-- Live App Card (Large Hero Card) -->
-                <article class="bento-card app-card app-card-featured">
+                <article class="bento-card app-card app-card-featured app-card-{{ app.id }}">
                     <div class="card-glow"></div>
                     <div class="app-card-header">
                         <div class="app-identity">
