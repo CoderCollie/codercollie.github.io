@@ -62,12 +62,12 @@
     - "연도별 한국 힙합 역사 아카이빙 연대기 (/chronicle) 및 신곡 피드"
     - "Astro 섬(Islands) 아키텍처 기반의 초경량·초고속 인터랙티브 웹 서빙"
   metrics:
-    - label: "데이터 소스"
-      value: "KOMCA 전수"
-    - label: "네트워크 분석"
+    - label: "국힙 피처링 네트워크"
       value: "최단 6단계"
-    - label: "탐사 아티클"
-      value: "데이터 칼럼"
+    - label: "데이터 저널 아티클"
+      value: "심층 분석"
+    - label: "래퍼 민심 트래커"
+      value: "실시간 추적"
   links:
     - label: "힙합퀀트 바로가기"
       url: "https://hiphopquant.com"
