@@ -2,8 +2,26 @@
 User-agent: Googlebot
 Disallow:
 
+# ✅ Naver 검색 엔진 허용
+User-agent: Yeti
+Disallow:
+
+# ✅ Daum / Kakao 검색 엔진 허용
+User-agent: Daumoa
+Disallow:
+
 # ✅ Bing 검색 엔진 허용
 User-agent: Bingbot
+Disallow:
+
+# ✅ SNS 링크 미리보기 (Open Graph) 허용
+User-agent: kakaotalk-scrap
+Disallow:
+
+User-agent: facebookexternalhit
+Disallow:
+
+User-agent: Twitterbot
 Disallow:
 
 # ❌ OpenAI GPTBot 차단 (ChatGPT 학습)
@@ -37,3 +55,6 @@ Disallow: /
 # ❌ 기타 알려지지 않은 AI 크롤러도 차단
 User-agent: *
 Disallow: /
+
+# 🗺️ 사이트맵 위치
+Sitemap: https://codercollie.github.io/sitemap.xml
